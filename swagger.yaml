@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: store api
+  contact: {}
+  version: "1.0"
+servers:
+  - url: https://store-api-ghjr.onrender.com/api/v1
+    variables: {}
+paths:
+  /products:
+    get:
+      tags:
+        - Products
+      summary: get all products
+      operationId: getallproducts
+      parameters:
+        - name: featured
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: boolean
+            example: false
+        - name: company
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: ikea
+        - name: name
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: ba
+        - name: sort
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: name,price
+        - name: fields
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: company,ratings
+        - name: page
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 3
+        - name: limit
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 7
+        - name: numericFilters
+          in: query
+          description: ""
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: price>100,ratings>=4.5
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /products/static:
+    get:
+      tags:
+        - Products
+      summary: get all testing
+      operationId: getalltesting
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+tags:
+  - name: Misc
+    description: ""
+  - name: Products
+    description: ""
